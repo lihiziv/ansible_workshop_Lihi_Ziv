@@ -1,0 +1,3 @@
+- name: Restart to ec2 instace
+  shell: "shoutdown -r now"
+  when: ansible_date_time.iso8601[:16] == restart_time
