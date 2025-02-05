@@ -2,4 +2,7 @@
   package:
     name: "{{ service }}"
     state: present
-  when: service is defined
+    version: "{{ version }}"
+  when:
+    - service is defined
+    - managed == 'True'
