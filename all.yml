@@ -1,3 +1,0 @@
-service: "{{ hostvars[inventory_hostname]['tags']['service'] | default('') }}"
-restart_time: "{{ hostvars[inventory_hostname]['tags']['restart'] | default('') }}"
-hostname: "{{ hostvars[inventory_hostname]['tags']['name'] | default('') }}"
