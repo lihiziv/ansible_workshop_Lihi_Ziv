@@ -1,0 +1,5 @@
+- name: Install service to ec2 instance
+  package:
+    name: "{{ service }}"
+    state: present
+  when: service is defined
