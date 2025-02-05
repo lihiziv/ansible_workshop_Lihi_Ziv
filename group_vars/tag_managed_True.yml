@@ -1,0 +1,4 @@
+service: "{{ hostvars[inventory_hostname]['tags']['service'] | default('') }}"
+version: "{{ hostvars[inventory_hostname]['tags']['version'] | default('lastest') }}"
+restart_time: "{{ hostvars[inventory_hostname]['tags']['restart'] | default('') }}"
+hostname: "{{ hostvars[inventory_hostname]['tags']['name'] | default('') }}"
