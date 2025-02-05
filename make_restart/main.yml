@@ -3,6 +3,6 @@
   when:
     - ansible_date_time.weekday == ([ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ].index(restart_day))
     - ansible_date_time.hour == restart_hour
-    - ansible_date_time_minute == restart_minute
+    - ansible_date_time.minute == restart_minute
     - managed == 'True'
 
