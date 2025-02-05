@@ -3,11 +3,10 @@ regions:
   - us-east-1
 filters:
   instance-state-name: running
-  tag:managed: 'True'
+  tag:managed: "True"
+compose:
+  ansible_host: public_dns_name
 keyed_groups:
-  - key: tags.Name
-    prefix: name_
-  - key: tags.Service
-    prefix: service_
-hostname:
-  - dns
+  - key: tags.Managed
+    prefix: managed_
+
