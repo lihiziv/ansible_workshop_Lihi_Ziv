@@ -1,0 +1,4 @@
+- name: Rename host based on an instance name tag
+  hostname:
+    name: "{{ hostname }}"
+  when: hostname is defined
