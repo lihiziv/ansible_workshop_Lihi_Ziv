@@ -1,5 +1,5 @@
 - name: manage instances by tags
-  hosts: all
+  hosts: tag_managed_True
   become: yes
   roles:
     - rename_host
