@@ -1,0 +1,4 @@
+[defaults]
+inventory = inventory/aws.yml
+[inventory]
+enable_plugins = amazon.aws.aws_ec2
