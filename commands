@@ -1,0 +1,680 @@
+[ec2-user@ip-10-0-10-148 ~]$ pip install ansible
+-bash: pip: command not found
+[ec2-user@ip-10-0-10-148 ~]$ apt install ansible
+-bash: apt: command not found
+[ec2-user@ip-10-0-10-148 ~]$ sudo amazon-linux-extras install ansible2
+sudo: amazon-linux-extras: command not found
+[ec2-user@ip-10-0-10-148 ~]$ sudo yum update
+sudo yum install ansible --enablerepo=epel
+Last metadata expiration check: 0:01:26 ago on Wed Feb  5 07:05:41 2025.
+Dependencies resolved.
+Nothing to do.
+Complete!
+Error: Unknown repo: 'epel'
+[ec2-user@ip-10-0-10-148 ~]$ ansible status
+-bash: ansible: command not found
+[ec2-user@ip-10-0-10-148 ~]$ sudo yum remove ansible
+sudo yum install -y python3-pip
+python3 -m pip install --user --upgrade pip # Do not run pip as sudo. Do this instead.
+python3 -m pip install ansible
+No match for argument: ansible
+No packages marked for removal.
+Dependencies resolved.
+Nothing to do.
+Complete!
+Last metadata expiration check: 0:02:00 ago on Wed Feb  5 07:05:41 2025.
+Dependencies resolved.
+===================================================================================================================================================================================================================
+ Package                                              Architecture                               Version                                                     Repository                                       Size
+===================================================================================================================================================================================================================
+Installing:
+ python3-pip                                          noarch                                     21.3.1-2.amzn2023.0.10                                      amazonlinux                                     1.8 M
+Installing weak dependencies:
+ libxcrypt-compat                                     x86_64                                     4.4.33-7.amzn2023                                           amazonlinux                                      92 k
+
+Transaction Summary
+===================================================================================================================================================================================================================
+Install  2 Packages
+
+Total download size: 1.9 M
+Installed size: 11 M
+Downloading Packages:
+(1/2): libxcrypt-compat-4.4.33-7.amzn2023.x86_64.rpm                                                                                                                               1.8 MB/s |  92 kB     00:00    
+(2/2): python3-pip-21.3.1-2.amzn2023.0.10.noarch.rpm                                                                                                                                27 MB/s | 1.8 MB     00:00    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                               19 MB/s | 1.9 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                                                           1/1 
+  Installing       : libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                                                                                                                                 1/2 
+  Installing       : python3-pip-21.3.1-2.amzn2023.0.10.noarch                                                                                                                                                 2/2 
+  Running scriptlet: python3-pip-21.3.1-2.amzn2023.0.10.noarch                                                                                                                                                 2/2 
+  Verifying        : libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                                                                                                                                 1/2 
+  Verifying        : python3-pip-21.3.1-2.amzn2023.0.10.noarch                                                                                                                                                 2/2 
+
+Installed:
+  libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                                                python3-pip-21.3.1-2.amzn2023.0.10.noarch                                                               
+
+Complete!
+Requirement already satisfied: pip in /usr/lib/python3.9/site-packages (21.3.1)
+Collecting pip
+  Downloading pip-25.0-py3-none-any.whl (1.8 MB)
+     |████████████████████████████████| 1.8 MB 10.3 MB/s            
+Installing collected packages: pip
+Successfully installed pip-25.0
+Defaulting to user installation because normal site-packages is not writeable
+Collecting ansible
+  Downloading ansible-8.7.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting ansible-core~=2.15.7 (from ansible)
+  Downloading ansible_core-2.15.13-py3-none-any.whl.metadata (7.0 kB)
+Collecting jinja2>=3.0.0 (from ansible-core~=2.15.7->ansible)
+  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: PyYAML>=5.1 in /usr/lib64/python3.9/site-packages (from ansible-core~=2.15.7->ansible) (5.4.1)
+Requirement already satisfied: cryptography in /usr/lib64/python3.9/site-packages (from ansible-core~=2.15.7->ansible) (36.0.1)
+Collecting packaging (from ansible-core~=2.15.7->ansible)
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting resolvelib<1.1.0,>=0.5.3 (from ansible-core~=2.15.7->ansible)
+  Downloading resolvelib-1.0.1-py2.py3-none-any.whl.metadata (4.0 kB)
+Collecting importlib-resources<5.1,>=5.0 (from ansible-core~=2.15.7->ansible)
+  Downloading importlib_resources-5.0.7-py3-none-any.whl.metadata (2.8 kB)
+Collecting MarkupSafe>=2.0 (from jinja2>=3.0.0->ansible-core~=2.15.7->ansible)
+  Downloading MarkupSafe-3.0.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Requirement already satisfied: cffi>=1.12 in /usr/lib64/python3.9/site-packages (from cryptography->ansible-core~=2.15.7->ansible) (1.14.5)
+Requirement already satisfied: pycparser in /usr/lib/python3.9/site-packages (from cffi>=1.12->cryptography->ansible-core~=2.15.7->ansible) (2.20)
+Requirement already satisfied: ply==3.11 in /usr/lib/python3.9/site-packages (from pycparser->cffi>=1.12->cryptography->ansible-core~=2.15.7->ansible) (3.11)
+Downloading ansible-8.7.0-py3-none-any.whl (48.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.4/48.4 MB 73.6 MB/s eta 0:00:00
+Downloading ansible_core-2.15.13-py3-none-any.whl (2.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 88.3 MB/s eta 0:00:00
+Downloading importlib_resources-5.0.7-py3-none-any.whl (24 kB)
+Downloading jinja2-3.1.5-py3-none-any.whl (134 kB)
+Downloading resolvelib-1.0.1-py2.py3-none-any.whl (17 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading MarkupSafe-3.0.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Installing collected packages: resolvelib, packaging, MarkupSafe, importlib-resources, jinja2, ansible-core, ansible
+Successfully installed MarkupSafe-3.0.2 ansible-8.7.0 ansible-core-2.15.13 importlib-resources-5.0.7 jinja2-3.1.5 packaging-24.2 resolvelib-1.0.1
+[ec2-user@ip-10-0-10-148 ~]$ vim playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ rm playbook
+rm: cannot remove 'playbook': No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ rm playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ cd inventory /
+-bash: cd: too many arguments
+[ec2-user@ip-10-0-10-148 ~]$ mkdir inventory/
+[ec2-user@ip-10-0-10-148 ~]$ cd inventory/
+[ec2-user@ip-10-0-10-148 inventory]$ vim inventory/aws.yml
+
+/bin/bash: line 1: q: command not found
+
+shell returned 127
+
+Press ENTER or type command to continue
+/bin/bash: line 1: q: command not found
+
+shell returned 127
+
+Press ENTER or type command to continue
+/bin/bash: line 1: q: command not found
+
+shell returned 127
+
+Press ENTER or type command to continue
+[ec2-user@ip-10-0-10-148 inventory]$ tree
+-bash: tree: command not found
+[ec2-user@ip-10-0-10-148 inventory]$ ls
+[ec2-user@ip-10-0-10-148 inventory]$ sudo vim inventory/aws.yml
+
+[No write since last change]
+/bin/bash: line 1: q: command not found
+
+shell returned 127
+
+Press ENTER or type command to continue
+[No write since last change]
+/bin/bash: line 1: qa: command not found
+
+shell returned 127
+
+Press ENTER or type command to continue
+[No write since last change]
+
+Press ENTER or type command to continue
+[ec2-user@ip-10-0-10-148 inventory]$ sudo vim aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ sudo vim aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ ls
+aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ tree
+-bash: tree: command not found
+[ec2-user@ip-10-0-10-148 inventory]$ ls
+aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ sudo vim aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ mkdir groups_vars/
+[ec2-user@ip-10-0-10-148 ~]$ cd groups_vars/
+[ec2-user@ip-10-0-10-148 groups_vars]$ sudo vim all.yml
+[ec2-user@ip-10-0-10-148 groups_vars]$ cd ~/.ssh
+[ec2-user@ip-10-0-10-148 .ssh]$ ls
+authorized_keys
+[ec2-user@ip-10-0-10-148 .ssh]$ cd authorized_keys
+-bash: cd: authorized_keys: Not a directory
+[ec2-user@ip-10-0-10-148 .ssh]$ sudo vim authorized_keys
+[ec2-user@ip-10-0-10-148 .ssh]$ cd groups_vars/
+-bash: cd: groups_vars/: No such file or directory
+[ec2-user@ip-10-0-10-148 .ssh]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd groups_vars/
+[ec2-user@ip-10-0-10-148 groups_vars]$ sudo vim all.yml
+[ec2-user@ip-10-0-10-148 groups_vars]$ mv groups_vars
+mv: missing destination file operand after 'groups_vars'
+Try 'mv --help' for more information.
+[ec2-user@ip-10-0-10-148 groups_vars]$ mv groups_vars group_vars
+mv: cannot stat 'groups_vars': No such file or directory
+[ec2-user@ip-10-0-10-148 groups_vars]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ mv groups_vars group_vars
+[ec2-user@ip-10-0-10-148 ~]$ ls
+group_vars  inventory
+[ec2-user@ip-10-0-10-148 ~]$ vim playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ cd rules
+-bash: cd: rules: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ mkdir rules/
+[ec2-user@ip-10-0-10-148 ~]$ cd rules/
+[ec2-user@ip-10-0-10-148 rules]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 rules]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ cd rules/
+[ec2-user@ip-10-0-10-148 rules]$ mkdir manage_instances/
+[ec2-user@ip-10-0-10-148 rules]$ cd manage_instances/
+[ec2-user@ip-10-0-10-148 manage_instances]$ mkdir tasks/
+[ec2-user@ip-10-0-10-148 manage_instances]$ cd tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ tree
+-bash: tree: command not found
+[ec2-user@ip-10-0-10-148 ~]$ cd inventory
+[ec2-user@ip-10-0-10-148 inventory]$ vim aws/yml
+[ec2-user@ip-10-0-10-148 inventory]$ vim aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ sudo vim aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ sudo playbook.yml
+sudo: playbook.yml: command not found
+[ec2-user@ip-10-0-10-148 ~]$ sudo vim  playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ cd ruld/
+-bash: cd: ruld/: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cd ruls/
+-bash: cd: ruls/: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ ls
+group_vars  inventory  playbook.yml  rules
+[ec2-user@ip-10-0-10-148 ~]$ cd rules/
+[ec2-user@ip-10-0-10-148 rules]$ ls
+manage_instances  playbook.yml
+[ec2-user@ip-10-0-10-148 rules]$ mv manage_instances restart_host
+[ec2-user@ip-10-0-10-148 rules]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ sudo vim  playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ cd rules/
+[ec2-user@ip-10-0-10-148 rules]$ mv manage_instances rename_host
+mv: cannot stat 'manage_instances': No such file or directory
+[ec2-user@ip-10-0-10-148 rules]$ mv restart_host rename_host
+[ec2-user@ip-10-0-10-148 rules]$ mv rename_host rename_host/
+mv: cannot move 'rename_host' to a subdirectory of itself, 'rename_host/rename_host'
+[ec2-user@ip-10-0-10-148 rules]$ mv rename_host rename_hos
+[ec2-user@ip-10-0-10-148 rules]$ mv rename_hos rename_host/
+[ec2-user@ip-10-0-10-148 rules]$ cd renamehost/
+-bash: cd: renamehost/: No such file or directory
+[ec2-user@ip-10-0-10-148 rules]$ cd rename_host/
+[ec2-user@ip-10-0-10-148 rename_host]$ la
+-bash: la: command not found
+[ec2-user@ip-10-0-10-148 rename_host]$ ls
+tasks
+[ec2-user@ip-10-0-10-148 rename_host]$ cd tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ ls
+main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd ~
+[ec2-user@ip-10-0-10-148 ~]$ ls
+group_vars  inventory  playbook.yml  rules
+[ec2-user@ip-10-0-10-148 ~]$ cd group_vars
+[ec2-user@ip-10-0-10-148 group_vars]$ vim all.yml
+[ec2-user@ip-10-0-10-148 group_vars]$ sudo vim all.yml
+[ec2-user@ip-10-0-10-148 group_vars]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ sudo cim playbook.yml
+sudo: cim: command not found
+[ec2-user@ip-10-0-10-148 ~]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ cd group_vars
+[ec2-user@ip-10-0-10-148 group_vars]$ sudo vim all.yml
+[ec2-user@ip-10-0-10-148 group_vars]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ tree
+-bash: tree: command not found
+[ec2-user@ip-10-0-10-148 ~]$ ls
+group_vars  inventory  playbook.yml  rules
+[ec2-user@ip-10-0-10-148 ~]$ cd rules/
+[ec2-user@ip-10-0-10-148 rules]$ ls
+playbook.yml  rename_host
+[ec2-user@ip-10-0-10-148 rules]$ cd rename_host/
+[ec2-user@ip-10-0-10-148 rename_host]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 rename_host]$ ls
+main.yml  tasks
+[ec2-user@ip-10-0-10-148 rename_host]$ rm main.yml
+rm: remove write-protected regular empty file 'main.yml'? 
+[ec2-user@ip-10-0-10-148 rename_host]$ rm main.yml
+rm: remove write-protected regular empty file 'main.yml'? yes
+[ec2-user@ip-10-0-10-148 rename_host]$ ls
+tasks
+[ec2-user@ip-10-0-10-148 rename_host]$ cd task/
+-bash: cd: task/: No such file or directory
+[ec2-user@ip-10-0-10-148 rename_host]$ cd tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd rules/
+[ec2-user@ip-10-0-10-148 rules]$ mkdir install_service/
+[ec2-user@ip-10-0-10-148 rules]$ cd install_service/
+[ec2-user@ip-10-0-10-148 install_service]$ mkdir tasks/
+[ec2-user@ip-10-0-10-148 install_service]$ cd tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd inventory
+[ec2-user@ip-10-0-10-148 inventory]$ ls
+aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ cat aws.yml
+plugin: amazon.aws.aws_ec2
+regions:
+  - us-east-1
+filters:
+  instance-state-name: running
+keyed_groups:
+  - key: tags
+    prefix: "tag"
+hostname:
+  - tag:Name
+compose:
+  ansible_host: public_ip_address
+
+[ec2-user@ip-10-0-10-148 inventory]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cat playbook
+cat: playbook: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cat playbook.yml
+- name: manage instances by tags
+  hosts: all
+  become: yes
+  roles:
+    - rename_host
+    - install_service
+    - make_restart
+[ec2-user@ip-10-0-10-148 ~]$ cd rules
+[ec2-user@ip-10-0-10-148 rules]$ mkdir make_restart/
+[ec2-user@ip-10-0-10-148 rules]$ cd make_restart/
+[ec2-user@ip-10-0-10-148 make_restart]$ mkdir tasks/
+[ec2-user@ip-10-0-10-148 make_restart]$ cd tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd group_var
+-bash: cd: group_var: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cd group_vars
+[ec2-user@ip-10-0-10-148 group_vars]$ cat all
+cat: all: No such file or directory
+[ec2-user@ip-10-0-10-148 group_vars]$ cat all.yml
+service: "{{ hostvars[inventory_hostname]['tags']['service'] | default('') }}"
+restart: "{{ hostvars[inventory_hostname]['tags']['restart'] | default('') }}"
+hostname: "{{ hostvars[inventory_hostname]['tags']['name'] | default('') }}"
+[ec2-user@ip-10-0-10-148 group_vars]$ sudo vim all.yml
+[ec2-user@ip-10-0-10-148 group_vars]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd rules/
+[ec2-user@ip-10-0-10-148 rules]$ cd make_restart
+[ec2-user@ip-10-0-10-148 make_restart]$ cd tasks
+[ec2-user@ip-10-0-10-148 tasks]$ vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ sudp vim main.yml
+-bash: sudp: command not found
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ ansible-playbook site.yml --check -vvv
+ansible-playbook [core 2.15.13]
+  config file = None
+  configured module search path = ['/home/ec2-user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/ec2-user/.local/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/ec2-user/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/ec2-user/.local/bin/ansible-playbook
+  python version = 3.9.20 (main, Dec 11 2024, 00:00:00) [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)] (/usr/bin/python3)
+  jinja version = 3.1.5
+  libyaml = True
+No config file found; using defaults
+ERROR! the playbook: site.yml could not be found
+[ec2-user@ip-10-0-10-148 ~]$ ansible-playbook playbook.yml --check -vvv
+ansible-playbook [core 2.15.13]
+  config file = None
+  configured module search path = ['/home/ec2-user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/ec2-user/.local/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/ec2-user/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/ec2-user/.local/bin/ansible-playbook
+  python version = 3.9.20 (main, Dec 11 2024, 00:00:00) [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)] (/usr/bin/python3)
+  jinja version = 3.1.5
+  libyaml = True
+No config file found; using defaults
+host_list declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+script declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+auto declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+yaml declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+ini declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+toml declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! the role 'rename_host' was not found in /home/ec2-user/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user
+
+The error appears to be in '/home/ec2-user/playbook.yml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - rename_host
+      ^ here
+[ec2-user@ip-10-0-10-148 ~]$ cd rules
+[ec2-user@ip-10-0-10-148 rules]$ ls
+install_service  make_restart  playbook.yml  rename_host
+[ec2-user@ip-10-0-10-148 rules]$ cd 
+[ec2-user@ip-10-0-10-148 ~]$ ansible-playbook playbook.yml --list-tasks
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! the role 'rename_host' was not found in /home/ec2-user/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user
+
+The error appears to be in '/home/ec2-user/playbook.yml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - rename_host
+      ^ here
+[ec2-user@ip-10-0-10-148 ~]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ ansible-playbook playbook.yml --list-tasks
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! the role 'rename_host' was not found in /home/ec2-user/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user
+
+The error appears to be in '/home/ec2-user/playbook.yml': line 7, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      import_role:
+        name: rename_host
+              ^ here
+[ec2-user@ip-10-0-10-148 ~]$ cd /home/ec2-usrt/roles
+-bash: cd: /home/ec2-usrt/roles: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cd /home/ec2-user/roles
+-bash: cd: /home/ec2-user/roles: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ /etc
+-bash: /etc: Is a directory
+[ec2-user@ip-10-0-10-148 ~]$ cd /etc
+[ec2-user@ip-10-0-10-148 etc]$ ls
+DIR_COLORS                bashrc                  csh.cshrc      gcrypt              hosts         libaudit.conf   modprobe.d      passwd     rc3.d             selinux        sudo.conf           virc
+DIR_COLORS.lightbgcolor   bindresvport.blacklist  csh.login      gnupg               idmapd.conf   libibverbs.d    modules-load.d  passwd-    rc4.d             services       sudoers             wgetrc
+GREP_COLORS               binfmt.d                dbus-1         groff               image-id      libnl           motd            pkcs11     rc5.d             sestatus.conf  sudoers.d           xattr.conf
+NetworkManager            chkconfig.d             default        group               init.d        libreport       motd.d          pkgconfig  rc6.d             shadow         sysconfig           xdg
+X11                       chrony.conf             depmod.d       group-              inittab       libuser.conf    mtab            pki        request-key.conf  shadow-        sysctl.conf         yum.repos.d
+acpi                      chrony.d                dhcp           grub.d              inputrc       locale.conf     nanorc          pm         request-key.d     shells         sysctl.d
+adjtime                   chrony.keys             dnf            grub2-efi.cfg       issue         localtime       netconfig       popt.d     resolv.conf       skel           system-release
+aliases                   cifs-utils              dracut.conf    grub2.cfg           issue.net     login.defs      networks        printcap   rpc               ssh            system-release-cpe
+alternatives              cloud                   dracut.conf.d  gshadow             kernel        logrotate.conf  nfs.conf        profile    rpm               ssl            systemd
+amazon                    cron.daily              environment    gshadow-            keyutils      logrotate.d     nfsmount.conf   profile.d  rsyncd.conf       sssd           terminfo
+amazon-linux-release      cron.hourly             ethertypes     gss                 krb5.conf     lsm             nsswitch.conf   protocols  rsyslog.d         statetab.d     tmpfiles.d
+amazon-linux-release-cpe  cron.monthly            exports        gssproxy            krb5.conf.d   machine-id      openldap        rc.d       rwtab.d           subgid         trusted-key.key
+at.deny                   cron.weekly             exports.d      hibinit-config.cfg  ld.so.cache   magic           opt             rc0.d      sasl2             subgid-        udev
+audit                     crontab                 filesystems    host.conf           ld.so.conf    man_db.conf     os-release      rc1.d      screenrc          subuid         update-motd.d
+bash_completion.d         crypto-policies         fstab          hostname            ld.so.conf.d  mke2fs.conf     pam.d           rc2.d      security          subuid-        vimrc
+[ec2-user@ip-10-0-10-148 etc]$ /ansible
+-bash: /ansible: No such file or directory
+[ec2-user@ip-10-0-10-148 etc]$ cd ansible
+-bash: cd: ansible: No such file or directory
+[ec2-user@ip-10-0-10-148 etc]$ mkdir ansible/
+mkdir: cannot create directory ‘ansible/’: Permission denied
+[ec2-user@ip-10-0-10-148 etc]$ sudo mkdir ansible/
+[ec2-user@ip-10-0-10-148 etc]$ cd ansible/
+[ec2-user@ip-10-0-10-148 ansible]$ sudo mkdir rules/
+[ec2-user@ip-10-0-10-148 ansible]$ cd ruled
+-bash: cd: ruled: No such file or directory
+[ec2-user@ip-10-0-10-148 ansible]$ cd rules
+[ec2-user@ip-10-0-10-148 rules]$ cd rename_host
+-bash: cd: rename_host: No such file or directory
+[ec2-user@ip-10-0-10-148 rules]$ cd tasks
+-bash: cd: tasks: No such file or directory
+[ec2-user@ip-10-0-10-148 rules]$ nkdir tasks
+-bash: nkdir: command not found
+[ec2-user@ip-10-0-10-148 rules]$ mkdir tasks/
+mkdir: cannot create directory ‘tasks/’: Permission denied
+[ec2-user@ip-10-0-10-148 rules]$ sudo mkdir tasks/
+[ec2-user@ip-10-0-10-148 rules]$ cd .
+[ec2-user@ip-10-0-10-148 rules]$ rm tasks/
+rm: cannot remove 'tasks/': Is a directory
+[ec2-user@ip-10-0-10-148 rules]$ rm -r tasks/
+rm: remove write-protected directory 'tasks/'? yes
+rm: cannot remove 'tasks/': Permission denied
+[ec2-user@ip-10-0-10-148 rules]$ sudo rm -r tasks/
+[ec2-user@ip-10-0-10-148 rules]$ ls
+[ec2-user@ip-10-0-10-148 rules]$ mkdir rename_host/
+mkdir: cannot create directory ‘rename_host/’: Permission denied
+[ec2-user@ip-10-0-10-148 rules]$ sudo mkdir rename_host/
+[ec2-user@ip-10-0-10-148 rules]$ cd rename_host
+[ec2-user@ip-10-0-10-148 rename_host]$ sudo mkdir tasks/
+[ec2-user@ip-10-0-10-148 rename_host]$ cd tasks
+[ec2-user@ip-10-0-10-148 tasks]$ sudo cim main.tml
+sudo: cim: command not found
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ rules/
+-bash: rules/: Is a directory
+[ec2-user@ip-10-0-10-148 ~]$ cd rules/
+[ec2-user@ip-10-0-10-148 rules]$ cd rename_host
+[ec2-user@ip-10-0-10-148 rename_host]$ cd tasks
+[ec2-user@ip-10-0-10-148 tasks]$ sud vim main.yml
+-bash: sud: command not found
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd/etc
+-bash: cd/etc: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cd /etc
+[ec2-user@ip-10-0-10-148 etc]$ cd /ansible
+-bash: cd: /ansible: No such file or directory
+[ec2-user@ip-10-0-10-148 etc]$ cd ansible
+[ec2-user@ip-10-0-10-148 ansible]$ cd rules
+[ec2-user@ip-10-0-10-148 rules]$ cd rename_host
+[ec2-user@ip-10-0-10-148 rename_host]$ cd tasks
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ ansible-playbook playbook.yml --list-tasks
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! the role 'rename_host' was not found in /home/ec2-user/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user
+
+The error appears to be in '/home/ec2-user/playbook.yml': line 7, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      import_role:
+        name: rename_host
+              ^ here
+[ec2-user@ip-10-0-10-148 ~]$ cd /etc 
+[ec2-user@ip-10-0-10-148 etc]$ cd ansible
+[ec2-user@ip-10-0-10-148 ansible]$ vim playbook.yml
+[ec2-user@ip-10-0-10-148 ansible]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ~]$ cd /etc 
+[ec2-user@ip-10-0-10-148 etc]$ cd ansible
+[ec2-user@ip-10-0-10-148 ansible]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ansible]$ ansible-playbook playbook.yml --list-tasks
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/etc/ansible/playbook.yml': line 9, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+        name: rename_host
+~
+^ here
+[ec2-user@ip-10-0-10-148 ansible]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ansible]$ sudo mkdir inventory/
+[ec2-user@ip-10-0-10-148 ansible]$ sudo touch aws.yml
+[ec2-user@ip-10-0-10-148 ansible]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd inverntory
+-bash: cd: inverntory: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cd inventory
+[ec2-user@ip-10-0-10-148 inventory]$ sudo vim aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 inventory]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd ansible
+-bash: cd: ansible: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cd /etc 
+[ec2-user@ip-10-0-10-148 etc]$ cd ansible
+[ec2-user@ip-10-0-10-148 ansible]$ cd inventory
+[ec2-user@ip-10-0-10-148 inventory]$ sudo vim aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ ls
+aws.yml
+[ec2-user@ip-10-0-10-148 inventory]$ cd .
+[ec2-user@ip-10-0-10-148 inventory]$ cd .
+[ec2-user@ip-10-0-10-148 inventory]$ cd ..
+[ec2-user@ip-10-0-10-148 ansible]$ mkdir group_vars/
+mkdir: cannot create directory ‘group_vars/’: Permission denied
+[ec2-user@ip-10-0-10-148 ansible]$ sudo mkdir group_vars/
+[ec2-user@ip-10-0-10-148 ansible]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd group_vars/
+[ec2-user@ip-10-0-10-148 group_vars]$ sudo vim all.yml
+[ec2-user@ip-10-0-10-148 group_vars]$ cd /etc 
+[ec2-user@ip-10-0-10-148 etc]$ cd ansible
+[ec2-user@ip-10-0-10-148 ansible]$ cd group_vars/
+[ec2-user@ip-10-0-10-148 group_vars]$ vim all.yml 
+[ec2-user@ip-10-0-10-148 group_vars]$ sudo vim all.yml 
+[ec2-user@ip-10-0-10-148 group_vars]$ cd ..
+[ec2-user@ip-10-0-10-148 ansible]$ cd rules
+[ec2-user@ip-10-0-10-148 rules]$ mkdir install_service
+mkdir: cannot create directory ‘install_service’: Permission denied
+[ec2-user@ip-10-0-10-148 rules]$ sudo mkdir install_service/
+[ec2-user@ip-10-0-10-148 rules]$ cd install_service
+[ec2-user@ip-10-0-10-148 install_service]$ mkdir tasks/
+mkdir: cannot create directory ‘tasks/’: Permission denied
+[ec2-user@ip-10-0-10-148 install_service]$ sudo mkdir tasks/
+[ec2-user@ip-10-0-10-148 install_service]$ cd tasks
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd/rules/install_service/tasks
+-bash: cd/rules/install_service/tasks: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cd/rules/install_service/tasks/
+-bash: cd/rules/install_service/tasks/: No such file or directory
+[ec2-user@ip-10-0-10-148 ~]$ cd rules
+[ec2-user@ip-10-0-10-148 rules]$ ls
+install_service  make_restart  playbook.yml  rename_host
+[ec2-user@ip-10-0-10-148 rules]$ cd rules/install_service/tasks/
+-bash: cd: rules/install_service/tasks/: No such file or directory
+[ec2-user@ip-10-0-10-148 rules]$ cd ~/rules/install_service/tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd
+[ec2-user@ip-10-0-10-148 ~]$ cd /etc/ansible/rules/install_service/tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd ..
+[ec2-user@ip-10-0-10-148 install_service]$ cd ..
+[ec2-user@ip-10-0-10-148 rules]$ ls
+install_service  rename_host
+[ec2-user@ip-10-0-10-148 rules]$ mkdir make_restart/
+mkdir: cannot create directory ‘make_restart/’: Permission denied
+[ec2-user@ip-10-0-10-148 rules]$ sudo mkdir make_restart/
+[ec2-user@ip-10-0-10-148 rules]$ cd make restart
+-bash: cd: too many arguments
+[ec2-user@ip-10-0-10-148 rules]$ cd make_restart
+[ec2-user@ip-10-0-10-148 make_restart]$ mkdir tasks/
+mkdir: cannot create directory ‘tasks/’: Permission denied
+[ec2-user@ip-10-0-10-148 make_restart]$ sudo mkdir tasks/
+[ec2-user@ip-10-0-10-148 make_restart]$ cd ~/rules/make_restart/tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim all.yml
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd /etc/ansible/rules/make_restart/tasks/
+[ec2-user@ip-10-0-10-148 tasks]$ sudo vim main.yml
+[ec2-user@ip-10-0-10-148 tasks]$ cd /etc/ansible
+[ec2-user@ip-10-0-10-148 ansible]$ sudo vim playbook
+[ec2-user@ip-10-0-10-148 ansible]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ansible]$ ansible-playbook playbook.yml --list-tasks
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/etc/ansible/playbook.yml': line 9, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - make_restart
+~
+^ here
+[ec2-user@ip-10-0-10-148 ansible]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ansible]$ ansible-playbook playbook.yml --list-tasks
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/etc/ansible/playbook.yml': line 9, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - make_restart
+~
+^ here
+[ec2-user@ip-10-0-10-148 ansible]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ansible]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ansible]$ sudo vim playbook.yml
+[ec2-user@ip-10-0-10-148 ansible]$ ansible-playbook playbook.yml --list-tasks
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! the role 'rename_host' was not found in /etc/ansible/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/etc/ansible
+
+The error appears to be in '/etc/ansible/playbook.yml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - rename_host
+      ^ here
+[ec2-user@ip-10-0-10-148 ansible]$ cd /etc/ansible/roles
+-bash: cd: /etc/ansible/roles: No such file or directory
+[ec2-user@ip-10-0-10-148 ansible]$ cd /etc/ansible
+[ec2-user@ip-10-0-10-148 ansible]$ cd /roles
+-bash: cd: /roles: No such file or directory
+[ec2-user@ip-10-0-10-148 ansible]$ cd roles
+-bash: cd: roles: No such file or directory
+[ec2-user@ip-10-0-10-148 ansible]$ ls
+aws.yml  group_vars  inventory  playbook  playbook.yml  rules
+[ec2-user@ip-10-0-10-148 ansible]$ mv rules roles
+mv: cannot move 'rules' to 'roles': Permission denied
+[ec2-user@ip-10-0-10-148 ansible]$ sudo mv rules roles
+[ec2-user@ip-10-0-10-148 ansible]$ ansible-playbook playbook.yml --list-tasks
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+playbook: playbook.yml
+
+  play #1 (all): manage instances by tags       TAGS: []
+    tasks:
+      rename_host : Rename host based on an instance name tag   TAGS: []
+      install_service : Install service to ec2 instance TAGS: []
+      make_restart : Restart to ec2 instace     TAGS: []
